@@ -1,0 +1,9 @@
+[package]
+name = "tree-painter-cli"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "3", default-features = false, features = ["std", "derive"] }
+tree-painter = { path = "../lib" }

@@ -1,0 +1,21 @@
+[package]
+name = "tree-painter"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+thiserror = "1"
+toml = { version = "0", default-features = false }
+tree-sitter-highlight = "0.20"
+tree-sitter-c = { version = "0.20", optional = true }
+tree-sitter-cpp = { version = "0.20", optional = true }
+tree-sitter-javascript = { version = "0.20", optional = true }
+tree-sitter-rust = { version = "0.20", optional = true }
+
+[features]
+default = [
+    "tree-sitter-c",
+    "tree-sitter-cpp",
+    "tree-sitter-javascript",
+    "tree-sitter-rust"
+]
