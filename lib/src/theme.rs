@@ -1,4 +1,5 @@
-use crate::{Error, HIGHLIGHT_NAMES};
+use crate::renderer::HIGHLIGHT_NAMES;
+use crate::Error;
 use std::collections::HashMap;
 use std::convert::From;
 use toml::value::Table;

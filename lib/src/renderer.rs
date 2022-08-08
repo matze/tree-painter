@@ -1,7 +1,35 @@
-use crate::{theme, Error, Lang, HIGHLIGHT_NAMES};
+use crate::{theme, Error, Lang};
 use std::collections::HashMap;
 use std::fmt::Write;
 use tree_sitter_highlight::{Highlight, HighlightConfiguration, Highlighter, HtmlRenderer};
+
+pub(crate) const HIGHLIGHT_NAMES: [&str; 25] = [
+    "attribute",
+    "comment",
+    "constant",
+    "constant.builtin",
+    "constructor",
+    "escape",
+    "function",
+    "function.builtin",
+    "function.method",
+    "function.macro",
+    "include",
+    "keyword",
+    "label",
+    "number",
+    "operator",
+    "property",
+    "punctuation",
+    "punctuation.bracket",
+    "punctuation.delimiter",
+    "string",
+    "type",
+    "type.builtin",
+    "variable",
+    "variable.builtin",
+    "variable.parameter",
+];
 
 /// HTML syntax highlighting renderer.
 pub struct Renderer {
@@ -77,7 +105,8 @@ impl Renderer {
         let config = match self.configs.get(lang) {
             Some(config) => config,
             None => {
-                let config = lang.config();
+                let mut config = lang.config();
+                config.configure(&HIGHLIGHT_NAMES);
                 self.configs.insert(lang.clone(), config);
                 self.configs.get(lang).unwrap()
             }

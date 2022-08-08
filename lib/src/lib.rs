@@ -10,34 +10,6 @@ pub use error::Error;
 pub use renderer::Renderer;
 pub use theme::Theme;
 
-const HIGHLIGHT_NAMES: [&str; 25] = [
-    "attribute",
-    "comment",
-    "constant",
-    "constant.builtin",
-    "constructor",
-    "escape",
-    "function",
-    "function.builtin",
-    "function.method",
-    "function.macro",
-    "include",
-    "keyword",
-    "label",
-    "number",
-    "operator",
-    "property",
-    "punctuation",
-    "punctuation.bracket",
-    "punctuation.delimiter",
-    "string",
-    "type",
-    "type.builtin",
-    "variable",
-    "variable.builtin",
-    "variable.parameter",
-];
-
 /// Languages supported for syntax highlighting.
 #[derive(Eq, Hash, PartialEq, Clone, Debug)]
 pub enum Lang {
@@ -81,7 +53,7 @@ impl Lang {
     }
 
     fn config(&self) -> HighlightConfiguration {
-        let mut config = match self {
+        match self {
             #[cfg(feature = "tree-sitter-c")]
             Lang::C => HighlightConfiguration::new(
                 tree_sitter_c::language(),
@@ -114,9 +86,6 @@ impl Lang {
                 "",
             )
             .expect("loading tree-sitter-rust"),
-        };
-
-        config.configure(&HIGHLIGHT_NAMES);
-        config
+        }
     }
 }
