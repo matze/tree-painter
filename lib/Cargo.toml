@@ -2,6 +2,7 @@
 name = "tree-painter"
 version = "0.0.0"
 edition = "2021"
+description = "a source code syntax highlighting library based on tree-sitter and Helix editor themes and rendering to HTML and CSS"
 
 [dependencies]
 thiserror = "1"
