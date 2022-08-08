@@ -71,10 +71,22 @@ pub use theme::Theme;
 pub enum Lang {
     #[cfg(feature = "tree-sitter-c")]
     C,
+    #[cfg(feature = "tree-sitter-commonlisp")]
+    CommonLisp,
     #[cfg(feature = "tree-sitter-cpp")]
     Cpp,
+    #[cfg(feature = "tree-sitter-c-sharp")]
+    CSharp,
+    #[cfg(feature = "tree-sitter-cuda")]
+    Cuda,
+    #[cfg(feature = "tree-sitter-go")]
+    Go,
     #[cfg(feature = "tree-sitter-javascript")]
     Js,
+    #[cfg(feature = "tree-sitter-json")]
+    Json,
+    #[cfg(feature = "tree-sitter-python")]
+    Python,
     #[cfg(feature = "tree-sitter-rust")]
     Rust,
 }
@@ -98,10 +110,22 @@ impl Lang {
             .and_then(|e| match e {
                 #[cfg(feature = "tree-sitter-c")]
                 "c" => Some(Lang::C),
+                #[cfg(feature = "tree-sitter-c-sharp")]
+                "cs" => Some(Lang::CSharp),
+                #[cfg(feature = "tree-sitter-commonlisp")]
+                "lisp" | "lsp" | "l" | "cl" => Some(Lang::CommonLisp),
                 #[cfg(feature = "tree-sitter-cpp")]
                 "cpp" | "cc" | "cxx" => Some(Lang::Cpp),
+                #[cfg(feature = "tree-sitter-cuda")]
+                "cu" => Some(Lang::Cuda),
+                #[cfg(feature = "tree-sitter-go")]
+                "go" => Some(Lang::Go),
                 #[cfg(feature = "tree-sitter-javascript")]
                 "js" => Some(Lang::Js),
+                #[cfg(feature = "tree-sitter-json")]
+                "json" => Some(Lang::Json),
+                #[cfg(feature = "tree-sitter-python")]
+                "py" => Some(Lang::Python),
                 #[cfg(feature = "tree-sitter-rust")]
                 "rs" => Some(Lang::Rust),
                 &_ => None,
@@ -118,10 +142,31 @@ impl Lang {
                 "",
             )
             .expect("loading tree-sitter-c"),
+            #[cfg(feature = "tree-sitter-c-sharp")]
+            Lang::CSharp => {
+                HighlightConfiguration::new(tree_sitter_c_sharp::language(), "", "", "")
+                    .expect("loading tree-sitter-c-sharp")
+            }
+            #[cfg(feature = "tree-sitter-commonlisp")]
+            Lang::CommonLisp => {
+                HighlightConfiguration::new(tree_sitter_commonlisp::language(), "", "", "")
+                    .expect("loading tree-sitter-commonlisp")
+            }
             #[cfg(feature = "tree-sitter-cpp")]
             Lang::Cpp => HighlightConfiguration::new(
                 tree_sitter_cpp::language(),
                 tree_sitter_cpp::HIGHLIGHT_QUERY,
+                "",
+                "",
+            )
+            .expect("loading tree-sitter-cpp"),
+            #[cfg(feature = "tree-sitter-cuda")]
+            Lang::Cuda => HighlightConfiguration::new(tree_sitter_cuda::language(), "", "", "")
+                .expect("loading tree-sitter-cuda"),
+            #[cfg(feature = "tree-sitter-go")]
+            Lang::Go => HighlightConfiguration::new(
+                tree_sitter_go::language(),
+                tree_sitter_go::HIGHLIGHT_QUERY,
                 "",
                 "",
             )
@@ -134,6 +179,22 @@ impl Lang {
                 tree_sitter_javascript::LOCALS_QUERY,
             )
             .expect("loading tree-sitter-javascript"),
+            #[cfg(feature = "tree-sitter-json")]
+            Lang::Json => HighlightConfiguration::new(
+                tree_sitter_json::language(),
+                tree_sitter_json::HIGHLIGHT_QUERY,
+                "",
+                "",
+            )
+            .expect("loading tree-sitter-json"),
+            #[cfg(feature = "tree-sitter-python")]
+            Lang::Python => HighlightConfiguration::new(
+                tree_sitter_python::language(),
+                tree_sitter_python::HIGHLIGHT_QUERY,
+                "",
+                "",
+            )
+            .expect("loading tree-sitter-cpp"),
             #[cfg(feature = "tree-sitter-rust")]
             Lang::Rust => HighlightConfiguration::new(
                 tree_sitter_rust::language(),

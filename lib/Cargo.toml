@@ -9,14 +9,26 @@ thiserror = "1"
 toml = { version = "0", default-features = false }
 tree-sitter-highlight = "0.20"
 tree-sitter-c = { version = "0.20", optional = true }
+tree-sitter-c-sharp = { git = "https://github.com/tree-sitter/tree-sitter-c-sharp", optional = true }
+tree-sitter-commonlisp = { version = "0.3", optional = true }
 tree-sitter-cpp = { version = "0.20", optional = true }
+tree-sitter-cuda = { version = "0.1", optional = true }
+tree-sitter-go = { git = "https://github.com/tree-sitter/tree-sitter-go", optional = true }
 tree-sitter-javascript = { version = "0.20", optional = true }
+tree-sitter-json = { git = "https://github.com/tree-sitter/tree-sitter-json", optional = true }
+tree-sitter-python = { version = "0.20", optional = true }
 tree-sitter-rust = { version = "0.20", optional = true }
 
 [features]
 default = [
     "tree-sitter-c",
+    "tree-sitter-c-sharp",
+    "tree-sitter-commonlisp",
+    "tree-sitter-cuda",
     "tree-sitter-cpp",
+    "tree-sitter-go",
     "tree-sitter-javascript",
+    "tree-sitter-json",
+    "tree-sitter-python",
     "tree-sitter-rust"
 ]
