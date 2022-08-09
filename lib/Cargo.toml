@@ -33,4 +33,6 @@ default = [
     "tree-sitter-python",
     "tree-sitter-rust",
     "tree-sitter-typescript",
+    "themes",
 ]
+themes = []

@@ -24,8 +24,10 @@
 //! Then load a Helix theme:
 //!
 //! ```no_run
-//! let data = std::fs::read_to_string("catppuccin.toml").unwrap();
-//! let theme = tree_painter::Theme::from_helix(&data).unwrap();
+//! let data = std::fs::read_to_string("custom.toml").unwrap();
+//! let custom = tree_painter::Theme::from_helix(&data).unwrap();
+//! // or use a bundled theme
+//! let theme = tree_painter::Theme::from_helix(&tree_painter::themes::CATPPUCCIN_MOCHA).unwrap();
 //! ```
 //!
 //! Finally render the code:
@@ -65,6 +67,25 @@ mod theme;
 pub use error::Error;
 pub use renderer::Renderer;
 pub use theme::Theme;
+
+#[cfg(feature = "themes")]
+/// Bundled themes for use with [`Theme::from_helix()`].
+pub mod themes {
+    /// Ayu Dark.
+    pub const AYU_DARK: &str = include_str!("themes/ayu_dark.toml");
+    /// Ayu Light.
+    pub const AYU_LIGHT: &str = include_str!("themes/ayu_light.toml");
+    /// Ayu Mirage.
+    pub const AYU_MIRAGE: &str = include_str!("themes/ayu_mirage.toml");
+    /// Catppuccin Frappe.
+    pub const CATPPUCCIN_FRAPPE: &str = include_str!("themes/catppuccin_frappe.toml");
+    /// Catppuccin Latte.
+    pub const CATPPUCCIN_LATTE: &str = include_str!("themes/catppuccin_latte.toml");
+    /// Catppuccin Macchiato.
+    pub const CATPPUCCIN_MACCHIATO: &str = include_str!("themes/catppuccin_macchiato.toml");
+    /// Catppuccin Mocha.
+    pub const CATPPUCCIN_MOCHA: &str = include_str!("themes/catppuccin_mocha.toml");
+}
 
 /// Languages supported for syntax highlighting.
 #[derive(Eq, Hash, PartialEq, Clone, Debug)]
