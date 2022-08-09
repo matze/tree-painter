@@ -18,6 +18,7 @@ tree-sitter-javascript = { version = "0.20", optional = true }
 tree-sitter-json = { git = "https://github.com/tree-sitter/tree-sitter-json", optional = true }
 tree-sitter-python = { version = "0.20", optional = true }
 tree-sitter-rust = { version = "0.20", optional = true }
+tree-sitter-typescript = { git = "https://github.com/tree-sitter/tree-sitter-typescript", optional = true }
 
 [features]
 default = [
@@ -30,5 +31,6 @@ default = [
     "tree-sitter-javascript",
     "tree-sitter-json",
     "tree-sitter-python",
-    "tree-sitter-rust"
+    "tree-sitter-rust",
+    "tree-sitter-typescript",
 ]

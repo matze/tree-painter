@@ -89,6 +89,8 @@ pub enum Lang {
     Python,
     #[cfg(feature = "tree-sitter-rust")]
     Rust,
+    #[cfg(feature = "tree-sitter-typescript")]
+    Ts,
 }
 
 impl Lang {
@@ -128,6 +130,8 @@ impl Lang {
                 "py" => Some(Lang::Python),
                 #[cfg(feature = "tree-sitter-rust")]
                 "rs" => Some(Lang::Rust),
+                #[cfg(feature = "tree-sitter-typescript")]
+                "ts" => Some(Lang::Ts),
                 &_ => None,
             })
     }
@@ -203,6 +207,13 @@ impl Lang {
                 "",
             )
             .expect("loading tree-sitter-rust"),
+            Lang::Ts => HighlightConfiguration::new(
+                tree_sitter_typescript::language_typescript(),
+                tree_sitter_typescript::HIGHLIGHT_QUERY,
+                tree_sitter_typescript::LOCALS_QUERY,
+                "",
+            )
+            .expect("loading tree-sitter-typescript"),
         }
     }
 }
