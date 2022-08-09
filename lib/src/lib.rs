@@ -50,7 +50,8 @@
 //! # Feature flags
 //!
 //! The default feature flag enables support for all tree-sitter grammars supporting tree-sitter
-//! 0.20. You can opt out and enable specific grammars to reduce bloat with
+//! 0.20 as well as a couple of bundled [`themes`]. You can opt out and enable
+//! specific grammars to reduce bloat with
 //!
 //! ```toml
 //! [dependencies]
