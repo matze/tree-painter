@@ -3,6 +3,9 @@ name = "tree-painter"
 version = "0.0.0"
 edition = "2021"
 description = "a source code syntax highlighting library based on tree-sitter and Helix editor themes and rendering to HTML and CSS"
+repository = "https://github.com/matze/tree-painter"
+documentation = "https://docs.rs/tree-painter"
+license = "MIT"
 
 [dependencies]
 thiserror = "1"
