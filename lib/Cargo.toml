@@ -12,31 +12,64 @@ license = "MIT"
 thiserror = "1"
 toml = { version = "0", default-features = false }
 tree-sitter-highlight = "0.20"
-tree-sitter-c = { version = "0.20", optional = true }
-tree-sitter-commonlisp = { version = "0.3", optional = true }
-tree-sitter-cpp = { version = "0.20", optional = true }
-tree-sitter-cuda = { version = "0.1", optional = true }
-tree-sitter-javascript = { version = "0.20", optional = true }
-tree-sitter-python = { version = "0.20", optional = true }
-tree-sitter-rust = { version = "0.20", optional = true }
-# tree-sitter-c-sharp = { git = "https://github.com/tree-sitter/tree-sitter-c-sharp", optional = true }
-# tree-sitter-go = { git = "https://github.com/tree-sitter/tree-sitter-go", optional = true }
-# tree-sitter-json = { git = "https://github.com/tree-sitter/tree-sitter-json", optional = true }
-# tree-sitter-typescript = { git = "https://github.com/tree-sitter/tree-sitter-typescript", optional = true }
+# tree-sitter-bash = { path = "../grammars/tree-sitter-bash", optional = true }
+tree-sitter-c = { path = "../grammars/tree-sitter-c", optional = true }
+tree-sitter-c-sharp = { path = "../grammars/tree-sitter-c-sharp", optional = true }
+# tree-sitter-clojure = { path = "../grammars/tree-sitter-clojure", optional = true }
+tree-sitter-cpp = { path = "../grammars/tree-sitter-cpp", optional = true }
+tree-sitter-css = { path = "../grammars/tree-sitter-css", optional = true }
+tree-sitter-dockerfile = { path = "../grammars/tree-sitter-dockerfile", optional = true }
+tree-sitter-go = { path = "../grammars/tree-sitter-go", optional = true }
+# Disabled because of tree-sitter 0.19
+# tree-sitter-html = { path = "../grammars/tree-sitter-html", optional = true }
+tree-sitter-java = { path = "../grammars/tree-sitter-java", optional = true }
+tree-sitter-javascript = { path = "../grammars/tree-sitter-javascript", optional = true }
+tree-sitter-json = { path = "../grammars/tree-sitter-json", optional = true }
+tree-sitter-julia = { path = "../grammars/tree-sitter-julia", optional = true }
+tree-sitter-kotlin = { path = "../grammars/tree-sitter-kotlin", optional = true }
+tree-sitter-latex = { path = "../grammars/tree-sitter-latex", optional = true }
+tree-sitter-lua = { path = "../grammars/tree-sitter-lua", optional = true }
+tree-sitter-md = { path = "../grammars/tree-sitter-markdown", optional = true }
+tree-sitter-ocaml = { path = "../grammars/tree-sitter-ocaml", optional = true }
+# tree-sitter-perl = { path = "../grammars/tree-sitter-perl", optional = true }
+# tree-sitter-php = { path = "../grammars/tree-sitter-php", optional = true }
+tree-sitter-python = { path = "../grammars/tree-sitter-python", optional = true }
+tree-sitter-ruby = { path = "../grammars/tree-sitter-ruby", optional = true }
+tree-sitter-rust = { path = "../grammars/tree-sitter-rust", optional = true }
+tree-sitter-scala = { path = "../grammars/tree-sitter-scala", optional = true }
+# tree-sitter-swift = { path = "../grammars/tree-sitter-swift", optional = true }
+tree-sitter-typescript = { path = "../grammars/tree-sitter-typescript", optional = true }
+tree-sitter-zig = { path = "../grammars/tree-sitter-zig", optional = true }
 
 [features]
 default = [
+    # "tree-sitter-bash",
     "tree-sitter-c",
-    "tree-sitter-commonlisp",
-    "tree-sitter-cuda",
+    "tree-sitter-c-sharp",
+    # "tree-sitter-clojure",
     "tree-sitter-cpp",
+    "tree-sitter-css",
+    "tree-sitter-dockerfile",
+    "tree-sitter-go",
+    # "tree-sitter-html",
+    "tree-sitter-java",
     "tree-sitter-javascript",
+    "tree-sitter-json",
+    "tree-sitter-julia",
+    "tree-sitter-kotlin",
+    "tree-sitter-latex",
+    "tree-sitter-lua",
+    "tree-sitter-md",
+    "tree-sitter-ocaml",
+    # "tree-sitter-perl",
+    # "tree-sitter-php",
     "tree-sitter-python",
+    # "tree-sitter-ruby",
     "tree-sitter-rust",
-    # "tree-sitter-c-sharp",
-    # "tree-sitter-go",
-    # "tree-sitter-json",
-    # "tree-sitter-typescript",
+    "tree-sitter-scala",
+    # "tree-sitter-swift",
+    "tree-sitter-typescript",
+    "tree-sitter-zig",
     "themes",
 ]
 themes = []
