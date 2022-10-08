@@ -107,6 +107,8 @@ pub enum Lang {
     Docker,
     #[cfg(feature = "tree-sitter-go")]
     Go,
+    #[cfg(feature = "tree-sitter-haskell")]
+    Haskell,
     // #[cfg(feature = "tree-sitter-html")]
     // Html,
     #[cfg(feature = "tree-sitter-java")]
@@ -178,6 +180,8 @@ impl Lang {
                 // "clj" | "cljs" | "cljc" => Some(Lang::Clojure),
                 #[cfg(feature = "tree-sitter-go")]
                 "go" => Some(Lang::Go),
+                #[cfg(feature = "tree-sitter-haskell")]
+                "hs" | "lhs" => Some(Lang::Haskell),
                 // #[cfg(feature = "tree-sitter-html")]
                 // "html" => Some(Lang::Html),
                 #[cfg(feature = "tree-sitter-java")]
@@ -280,6 +284,14 @@ impl Lang {
                 "",
             )
             .expect("loading tree-sitter-go"),
+            #[cfg(feature = "tree-sitter-haskell")]
+            Lang::Haskell => HighlightConfiguration::new(
+                tree_sitter_haskell::language(),
+                tree_sitter_haskell::HIGHLIGHTS_QUERY,
+                "",
+                "",
+            )
+            .expect("loading tree-sitter-haskell"),
             // #[cfg(feature = "tree-sitter-html")]
             // Lang::Html => HighlightConfiguration::new(
             //     tree_sitter_html::language(),

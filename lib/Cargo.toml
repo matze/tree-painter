@@ -20,6 +20,7 @@ tree-sitter-cpp = { path = "../grammars/tree-sitter-cpp", optional = true }
 tree-sitter-css = { path = "../grammars/tree-sitter-css", optional = true }
 tree-sitter-dockerfile = { path = "../grammars/tree-sitter-dockerfile", optional = true }
 tree-sitter-go = { path = "../grammars/tree-sitter-go", optional = true }
+tree-sitter-haskell = { path = "../grammars/tree-sitter-haskell", optional = true }
 # Disabled because of tree-sitter 0.19
 # tree-sitter-html = { path = "../grammars/tree-sitter-html", optional = true }
 tree-sitter-java = { path = "../grammars/tree-sitter-java", optional = true }
@@ -51,6 +52,7 @@ default = [
     "tree-sitter-css",
     "tree-sitter-dockerfile",
     "tree-sitter-go",
+    "tree-sitter-haskell",
     # "tree-sitter-html",
     "tree-sitter-java",
     "tree-sitter-javascript",

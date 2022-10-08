@@ -3,7 +3,7 @@ use std::collections::HashMap;
 use std::fmt::Write;
 use tree_sitter_highlight::{Highlight, HighlightConfiguration, Highlighter, HtmlRenderer};
 
-pub(crate) const HIGHLIGHT_NAMES: [&str; 25] = [
+pub(crate) const HIGHLIGHT_NAMES: [&str; 27] = [
     "attribute",
     "comment",
     "constant",
@@ -17,12 +17,14 @@ pub(crate) const HIGHLIGHT_NAMES: [&str; 25] = [
     "include",
     "keyword",
     "label",
+    "namespace",
     "number",
     "operator",
     "property",
     "punctuation",
     "punctuation.bracket",
     "punctuation.delimiter",
+    "repeat",
     "string",
     "type",
     "type.builtin",
