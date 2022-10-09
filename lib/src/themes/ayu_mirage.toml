@@ -12,6 +12,7 @@
 "comment" = { fg = "gray", modifiers = ["italic"] }
 "variable" = { fg = "foreground" }
 "variable.parameter" = { fg = "yellow" }
+"include" = { fg = "orange" }
 "label" = { fg = "orange" }
 "punctuation" = { fg = "foreground" }
 "keyword" = { fg = "orange" }
@@ -19,6 +20,7 @@
 "keyword.directive" = { fg = "yellow" }
 "operator" = { fg = "orange" }
 "function" = { fg = "yellow", modifiers = ["bold"] }
+"repeat" = { fg = "orange" }
 "tag" = { fg = "blue" }
 "namespace" = { fg = "blue" }
 "markup.heading" = { fg = "orange" }

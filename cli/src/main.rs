@@ -1,4 +1,4 @@
-use anyhow::{anyhow, Result};
+use anyhow::{anyhow, Context, Result};
 use clap::Parser;
 use std::fs::read_to_string;
 use std::path::PathBuf;
@@ -20,8 +20,8 @@ fn main() -> Result<()> {
     let lang = Lang::from(&args.source)
         .ok_or_else(|| anyhow!("Cannot determine language from file extension"))?;
 
-    let source = read_to_string(args.source)?;
-    let theme = Theme::from_helix(&read_to_string(args.theme)?)?;
+    let source = read_to_string(args.source).context("Loading sources")?;
+    let theme = Theme::from_helix(&read_to_string(args.theme).context("Loading theme")?)?;
     let mut renderer = Renderer::new(theme);
 
     print!(
