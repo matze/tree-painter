@@ -31,6 +31,7 @@ tree-sitter-kotlin = { path = "../grammars/tree-sitter-kotlin", optional = true 
 tree-sitter-latex = { path = "../grammars/tree-sitter-latex", optional = true }
 tree-sitter-lua = { path = "../grammars/tree-sitter-lua", optional = true }
 tree-sitter-md = { path = "../grammars/tree-sitter-markdown", optional = true }
+tree-sitter-nix = { path = "../grammars/tree-sitter-nix", optional = true }
 tree-sitter-ocaml = { path = "../grammars/tree-sitter-ocaml", optional = true }
 # tree-sitter-perl = { path = "../grammars/tree-sitter-perl", optional = true }
 # tree-sitter-php = { path = "../grammars/tree-sitter-php", optional = true }
@@ -62,6 +63,7 @@ default = [
     "tree-sitter-latex",
     "tree-sitter-lua",
     "tree-sitter-md",
+    "tree-sitter-nix",
     "tree-sitter-ocaml",
     # "tree-sitter-perl",
     # "tree-sitter-php",

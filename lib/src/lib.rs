@@ -127,6 +127,8 @@ pub enum Lang {
     Lua,
     #[cfg(feature = "tree-sitter-md")]
     Markdown,
+    #[cfg(feature = "tree-sitter-nix")]
+    Nix,
     #[cfg(feature = "tree-sitter-ocaml")]
     Ocaml,
     // #[cfg(feature = "tree-sitter-perl")]
@@ -165,63 +167,77 @@ impl Lang {
         path.as_ref()
             .extension()
             .and_then(|e| e.to_str())
-            .and_then(|e| match e {
-                // #[cfg(feature = "tree-sitter-bash")]
-                // "sh" => Some(Lang::Bash),
-                #[cfg(feature = "tree-sitter-c")]
-                "c" => Some(Lang::C),
-                #[cfg(feature = "tree-sitter-c-sharp")]
-                "cs" => Some(Lang::CSharp),
-                #[cfg(feature = "tree-sitter-cpp")]
-                "cpp" | "cc" | "cxx" => Some(Lang::Cpp),
-                #[cfg(feature = "tree-sitter-dockerfile")]
-                "docker" => Some(Lang::Docker),
-                // #[cfg(feature = "tree-sitter-clojure")]
-                // "clj" | "cljs" | "cljc" => Some(Lang::Clojure),
-                #[cfg(feature = "tree-sitter-go")]
-                "go" => Some(Lang::Go),
-                #[cfg(feature = "tree-sitter-haskell")]
-                "hs" | "lhs" => Some(Lang::Haskell),
-                // #[cfg(feature = "tree-sitter-html")]
-                // "html" => Some(Lang::Html),
-                #[cfg(feature = "tree-sitter-java")]
-                "java" => Some(Lang::Js),
-                #[cfg(feature = "tree-sitter-javascript")]
-                "js" => Some(Lang::Js),
-                #[cfg(feature = "tree-sitter-json")]
-                "json" => Some(Lang::Json),
-                // #[cfg(feature = "tree-sitter-julia")]
-                // "jl" => Some(Lang::Julia),
-                #[cfg(feature = "tree-sitter-kotlin")]
-                "kt" => Some(Lang::Kotlin),
-                #[cfg(feature = "tree-sitter-latex")]
-                "tex" => Some(Lang::Latex),
-                #[cfg(feature = "tree-sitter-lua")]
-                "lua" => Some(Lang::Lua),
-                #[cfg(feature = "tree-sitter-md")]
-                "md" => Some(Lang::Markdown),
-                #[cfg(feature = "tree-sitter-ocaml")]
-                "ml" => Some(Lang::Ocaml),
-                // #[cfg(feature = "tree-sitter-perl")]
-                // "pl" => Some(Lang::Perl),
-                // #[cfg(feature = "tree-sitter-php")]
-                // "php" => Some(Lang::Php),
-                #[cfg(feature = "tree-sitter-python")]
-                "py" => Some(Lang::Python),
-                // #[cfg(feature = "tree-sitter-ruby")]
-                // "rb" => Some(Lang::Rust),
-                #[cfg(feature = "tree-sitter-rust")]
-                "rs" => Some(Lang::Rust),
-                // #[cfg(feature = "tree-sitter-scala")]
-                // "scala" | "sc" => Some(Lang::Scala),
-                // #[cfg(feature = "tree-sitter-swift")]
-                // "swift" => Some(Lang::Swift),
-                #[cfg(feature = "tree-sitter-typescript")]
-                "ts" => Some(Lang::Ts),
-                #[cfg(feature = "tree-sitter-zig")]
-                "zig" => Some(Lang::Zig),
-                &_ => None,
-            })
+            .and_then(|e| Self::from_extension(e))
+    }
+
+    /// Guesses a language from a plain file extension.
+    ///
+    /// Examples:
+    ///
+    /// ```
+    /// let lang = tree_painter::Lang::from_extension("rs");
+    /// assert!(matches!(Some(tree_painter::Lang::Rust), lang));
+    /// ```
+    pub fn from_extension(e: &str) -> Option<Self> {
+        match e {
+            // #[cfg(feature = "tree-sitter-bash")]
+            // "sh" => Some(Lang::Bash),
+            #[cfg(feature = "tree-sitter-c")]
+            "c" => Some(Lang::C),
+            #[cfg(feature = "tree-sitter-c-sharp")]
+            "cs" => Some(Lang::CSharp),
+            #[cfg(feature = "tree-sitter-cpp")]
+            "cpp" | "cc" | "cxx" => Some(Lang::Cpp),
+            #[cfg(feature = "tree-sitter-dockerfile")]
+            "docker" => Some(Lang::Docker),
+            // #[cfg(feature = "tree-sitter-clojure")]
+            // "clj" | "cljs" | "cljc" => Some(Lang::Clojure),
+            #[cfg(feature = "tree-sitter-go")]
+            "go" => Some(Lang::Go),
+            #[cfg(feature = "tree-sitter-haskell")]
+            "hs" | "lhs" => Some(Lang::Haskell),
+            // #[cfg(feature = "tree-sitter-html")]
+            // "html" => Some(Lang::Html),
+            #[cfg(feature = "tree-sitter-java")]
+            "java" => Some(Lang::Js),
+            #[cfg(feature = "tree-sitter-javascript")]
+            "js" => Some(Lang::Js),
+            #[cfg(feature = "tree-sitter-json")]
+            "json" => Some(Lang::Json),
+            // #[cfg(feature = "tree-sitter-julia")]
+            // "jl" => Some(Lang::Julia),
+            #[cfg(feature = "tree-sitter-kotlin")]
+            "kt" => Some(Lang::Kotlin),
+            #[cfg(feature = "tree-sitter-latex")]
+            "tex" => Some(Lang::Latex),
+            #[cfg(feature = "tree-sitter-lua")]
+            "lua" => Some(Lang::Lua),
+            #[cfg(feature = "tree-sitter-md")]
+            "md" => Some(Lang::Markdown),
+            #[cfg(feature = "tree-sitter-nix")]
+            "nix" => Some(Lang::Nix),
+            #[cfg(feature = "tree-sitter-ocaml")]
+            "ml" => Some(Lang::Ocaml),
+            // #[cfg(feature = "tree-sitter-perl")]
+            // "pl" => Some(Lang::Perl),
+            // #[cfg(feature = "tree-sitter-php")]
+            // "php" => Some(Lang::Php),
+            #[cfg(feature = "tree-sitter-python")]
+            "py" => Some(Lang::Python),
+            // #[cfg(feature = "tree-sitter-ruby")]
+            // "rb" => Some(Lang::Rust),
+            #[cfg(feature = "tree-sitter-rust")]
+            "rs" => Some(Lang::Rust),
+            // #[cfg(feature = "tree-sitter-scala")]
+            // "scala" | "sc" => Some(Lang::Scala),
+            // #[cfg(feature = "tree-sitter-swift")]
+            // "swift" => Some(Lang::Swift),
+            #[cfg(feature = "tree-sitter-typescript")]
+            "ts" => Some(Lang::Ts),
+            #[cfg(feature = "tree-sitter-zig")]
+            "zig" => Some(Lang::Zig),
+            &_ => None,
+        }
     }
 
     fn config(&self) -> HighlightConfiguration {
@@ -349,6 +365,14 @@ impl Lang {
                 "",
             )
             .expect("loading tree-sitter-md"),
+            #[cfg(feature = "tree-sitter-nix")]
+            Lang::Nix => HighlightConfiguration::new(
+                tree_sitter_nix::language(),
+                tree_sitter_nix::HIGHLIGHTS_QUERY,
+                "",
+                "",
+            )
+            .expect("loading tree-sitter-ocaml"),
             #[cfg(feature = "tree-sitter-ocaml")]
             Lang::Ocaml => HighlightConfiguration::new(
                 tree_sitter_ocaml::language_ocaml(),
