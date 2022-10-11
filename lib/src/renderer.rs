@@ -68,7 +68,7 @@ impl Renderer {
 
         let _ = writeln!(
             css,
-            ".tsc-bg {{ color: {}; background-color: {}; }}",
+            ":root {{ --tsc-main-fg-color: {}; --tsc-main-bg-color: {}; }}",
             self.theme.foreground.color, self.theme.background.color
         );
 
