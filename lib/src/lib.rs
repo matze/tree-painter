@@ -186,6 +186,8 @@ impl Lang {
             "c" => Some(Lang::C),
             #[cfg(feature = "tree-sitter-c-sharp")]
             "cs" => Some(Lang::CSharp),
+            #[cfg(feature = "tree-sitter-css")]
+            "css" => Some(Lang::Css),
             #[cfg(feature = "tree-sitter-cpp")]
             "cpp" | "cc" | "cxx" => Some(Lang::Cpp),
             #[cfg(feature = "tree-sitter-dockerfile")]
