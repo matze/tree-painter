@@ -454,3 +454,61 @@ impl Lang {
         }
     }
 }
+
+/// Language info.
+pub struct Info {
+    /// Identifier matching the most common file extension.
+    pub id: &'static str,
+    /// Human-readable string.
+    pub name: &'static str,
+}
+
+impl Info {
+    const fn new(id: &'static str, name: &'static str) -> Self {
+        Self { id, name }
+    }
+}
+
+/// Language info mappings.
+pub const INFOS: [Info; 20] = [
+    #[cfg(feature = "tree-sitter-c")]
+    Info::new("c", "C"),
+    #[cfg(feature = "tree-sitter-cpp")]
+    Info::new("cpp", "C++"),
+    #[cfg(feature = "tree-sitter-c-sharp")]
+    Info::new("cs", "C#"),
+    #[cfg(feature = "tree-sitter-css")]
+    Info::new("css", "CSS"),
+    #[cfg(feature = "tree-sitter-dockerfile")]
+    Info::new("dockerfile", "Dockerfile"),
+    #[cfg(feature = "tree-sitter-go")]
+    Info::new("go", "Go"),
+    #[cfg(feature = "tree-sitter-haskell")]
+    Info::new("hs", "Haskell"),
+    #[cfg(feature = "tree-sitter-java")]
+    Info::new("java", "Java"),
+    #[cfg(feature = "tree-sitter-javascript")]
+    Info::new("js", "JavaScript"),
+    #[cfg(feature = "tree-sitter-json")]
+    Info::new("json", "JSON"),
+    #[cfg(feature = "tree-sitter-kotlin")]
+    Info::new("kt", "Kotlin"),
+    #[cfg(feature = "tree-sitter-latex")]
+    Info::new("tex", "LaTeX"),
+    #[cfg(feature = "tree-sitter-lua")]
+    Info::new("lua", "Lua"),
+    #[cfg(feature = "tree-sitter-md")]
+    Info::new("md", "Markdown"),
+    #[cfg(feature = "tree-sitter-nix")]
+    Info::new("nix", "Nix"),
+    #[cfg(feature = "tree-sitter-ocaml")]
+    Info::new("ml", "OCaml"),
+    #[cfg(feature = "tree-sitter-python")]
+    Info::new("py", "Python"),
+    #[cfg(feature = "tree-sitter-rust")]
+    Info::new("rs", "Rust"),
+    #[cfg(feature = "tree-sitter-typescript")]
+    Info::new("ts", "TypeScript"),
+    #[cfg(feature = "tree-sitter-zig")]
+    Info::new("zig", "Zig"),
+];
