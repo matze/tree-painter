@@ -10,7 +10,7 @@ license = "MIT"
 
 [dependencies]
 thiserror = "1"
-toml = { version = "0", default-features = false }
+toml = { version = "0", default-features = false, features = ["parse"] }
 tree-sitter-highlight = "0.20"
 # tree-sitter-bash = { path = "../grammars/tree-sitter-bash", optional = true }
 tree-sitter-c = { path = "../grammars/tree-sitter-c", optional = true }
