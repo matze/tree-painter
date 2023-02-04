@@ -38,7 +38,8 @@ tree-sitter-ocaml = { path = "../grammars/tree-sitter-ocaml", optional = true }
 tree-sitter-python = { path = "../grammars/tree-sitter-python", optional = true }
 tree-sitter-ruby = { path = "../grammars/tree-sitter-ruby", optional = true }
 tree-sitter-rust = { path = "../grammars/tree-sitter-rust", optional = true }
-tree-sitter-scala = { path = "../grammars/tree-sitter-scala", optional = true }
+# Disabled because highlights.scm is not found
+# tree-sitter-scala = { path = "../grammars/tree-sitter-scala", optional = true }
 # tree-sitter-swift = { path = "../grammars/tree-sitter-swift", optional = true }
 tree-sitter-typescript = { path = "../grammars/tree-sitter-typescript", optional = true }
 tree-sitter-zig = { path = "../grammars/tree-sitter-zig", optional = true }
@@ -70,7 +71,7 @@ default = [
     "tree-sitter-python",
     # "tree-sitter-ruby",
     "tree-sitter-rust",
-    "tree-sitter-scala",
+    # "tree-sitter-scala",
     # "tree-sitter-swift",
     "tree-sitter-typescript",
     "tree-sitter-zig",
