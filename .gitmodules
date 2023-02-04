@@ -111,5 +111,6 @@
 	path = grammars/tree-sitter-haskell
 	url = https://github.com/tree-sitter/tree-sitter-haskell
 [submodule "grammars/tree-sitter-nix"]
+	shallow = true
 	path = grammars/tree-sitter-nix
 	url = https://github.com/cstrahan/tree-sitter-nix
